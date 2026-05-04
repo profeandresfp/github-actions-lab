@@ -1,0 +1,22 @@
+name: Integración continua
+
+#eventos que hace que se ejecute el workflow
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  audit: #nombre
+    runs-on: ubuntu-latest #máquina en la que quiero que se ejecute el workflow
+
+    steps:
+      name: Checkout
+      uses: actions/checkout@v6
+      name: Inspect machine #nombre
+      run:  # run ejecuta comandos de linux / uses usar una acción
+        ls -al   
+        whoani
+        pwd
+        node -v
